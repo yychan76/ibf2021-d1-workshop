@@ -3,6 +3,7 @@ package ibf2021.d2;
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ShopCart {
     protected List<String> cartItems;
@@ -44,11 +45,25 @@ public class ShopCart {
         }
     }
 
-    private void run() {
+    private String getInput() {
         Console cons = System.console();
+        return cons.readLine("> ");
+    }
+
+    private String getScannerInput(Scanner scan) {
+        System.out.print("> ");
+        String input = scan.nextLine();
+        // System.out.println(input);
+        return input;
+    }
+
+    private void run() {
+        Scanner scan = new Scanner(System.in);
+
         boolean exit = false;
         while(!exit) {
-            String input = cons.readLine("> ");
+            // String input = getInput();
+            String input = getScannerInput(scan);
             String[] commands = input.split(" ");
             switch (commands[0]) {
                 case "list":
@@ -83,6 +98,7 @@ public class ShopCart {
 
             }
         }
+        scan.close();
     }
 
     public static void main(String[] args) {
