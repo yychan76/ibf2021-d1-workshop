@@ -45,6 +45,14 @@ public class ShopCart {
         }
     }
 
+    public int getItemsCount() {
+        return this.cartItems.size();
+    }
+
+    public List<String> getItems() {
+        return this.cartItems;
+    }
+
     private String getInput() {
         Console cons = System.console();
         return cons.readLine("> ");
